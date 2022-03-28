@@ -6,35 +6,46 @@ using System;
 public class BallControl : MonoBehaviour
 {
     public Rigidbody2D rb;
+    private bool collided;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D> ();
         
     }
+     public void OnCollisionEnter2D(){
+        collided =true;
+    }
+ 
+    public void OnCollisionExit2D(){
+        collided =false;
+    }
 
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown("a")){
+        if(collided){
+            if (Input.GetKeyDown("a")){
             launch(10,5*Math.PI/6);
-        }
-        if (Input.GetKeyDown("s")){
+            }
+            if (Input.GetKeyDown("s")){
             launch(10,2*Math.PI/3);
-        }
-        if (Input.GetKeyDown("d")){
+            }
+            if (Input.GetKeyDown("d")){
             launch(10,Math.PI/3);
-        }
-        if (Input.GetKeyDown("f")){
+            }
+            if (Input.GetKeyDown("f")){
             launch(10,Math.PI/6);
-        }
-        if (Input.GetKeyDown("space")){
+            }
+            if (Input.GetKeyDown("space")){
             launch(10,Math.PI/2);
-        }
-        if (Input.GetKeyDown("g")){
+            }
+                if (Input.GetKeyDown("g")){
             launch(20,Math.PI/4);
+         }
+
         }
+        
     }
     
     //give the ball a speed and angle
