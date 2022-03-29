@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class BallControl : MonoBehaviour
 {
@@ -13,13 +14,25 @@ public class BallControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D> ();
         
     }
-     public void OnCollisionEnter2D(){
-        collided =true;
+     public void OnCollisionEnter2D(Collision2D other){
+        if(other.gameObject.CompareTag("Goal")){
+            EndGame();
+        }
+        else{
+            collided =true;
+        }
+
+        
     }
- 
-    public void OnCollisionExit2D(){
+    
+    public void OnCollisionExit2D(Collision2D other){
         collided =false;
     }
+    
+     void EndGame(){
+          SceneManager.LoadScene("GameOver");
+
+     }
 
     // Update is called once per frame
     void Update()
