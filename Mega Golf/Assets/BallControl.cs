@@ -8,10 +8,16 @@ public class BallControl : MonoBehaviour
 {
     public Rigidbody2D rb;
     private bool collided;
+    private bool stationary = false;
+    public GameHandler gameHandlerObj;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D> ();
+        if (GameObject.FindWithTag("GameHandler") != null){
+            gameHandlerObj = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
+         }
         
     }
      public void OnCollisionEnter2D(Collision2D other){
@@ -37,7 +43,9 @@ public class BallControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(collided){
+        check_stationary();
+        //only be able to hit when the ball is stationary and on the ground
+        if(stationary && collided){
             if (Input.GetKeyDown("a")){
             launch(10,5*Math.PI/6);
             }
@@ -66,7 +74,12 @@ public class BallControl : MonoBehaviour
         float v_x = (float)(v * Math.Cos(theta));
         float v_y = (float)(v * Math.Sin(theta));
         rb.velocity = new Vector2(v_x,v_y);
+        gameHandlerObj.AddStroke(1);
          
 
+    }
+    //check that the ball has stopped moving
+    void check_stationary(){
+        stationary = rb.velocity.Equals(new Vector2(0,0));    
     }
 }
