@@ -10,6 +10,8 @@ public class BallControl : MonoBehaviour
     private bool collided;
     private bool stationary = false;
     public GameHandler gameHandlerObj;
+    public  float shootPower = 10f;
+    Vector2 startPos, endPos, direction;
 
     // Start is called before the first frame update
     void Start()
@@ -75,11 +77,31 @@ public class BallControl : MonoBehaviour
         float v_y = (float)(v * Math.Sin(theta));
         rb.velocity = new Vector2(v_x,v_y);
         gameHandlerObj.AddStroke(1);
-         
-
+        
     }
     //check that the ball has stopped moving
     void check_stationary(){
         stationary = rb.velocity.Equals(new Vector2(0,0));    
     }
+
+     
+     void OnMouseDown (){
+        if(stationary && collided){
+            if (Input.GetMouseButtonDown (0)) {
+                startPos = Input.mousePosition;
+            }
+        } 
+
+     }
+     void OnMouseUp (){
+         if(stationary && collided){
+            if (Input.GetMouseButtonUp (0)) {
+                 endPos = Input.mousePosition;
+                direction = startPos - endPos;
+                rb.isKinematic = false;
+                rb.AddForce (direction * shootPower);
+             }
+         }
+        
+     }
 }
