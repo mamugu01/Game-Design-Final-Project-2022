@@ -30,7 +30,7 @@ Transform:
   m_LocalPosition: {x: 0.9, y: -0.6383714, z: -0.50066584}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 2729496712079352642}
+  - {fileID: 8926931054395285066}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -68,9 +68,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.4911528, y: -0.8847619}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.22738945
+  m_Radius: 0.29
 --- !u!114 &2729496712045795133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +84,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
---- !u!1 &2729496712079352643
+  gameHandlerObj: {fileID: 0}
+  shootPower: 10
+--- !u!1 &5324231250701663885
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -92,36 +94,36 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2729496712079352642}
-  - component: {fileID: 2729496712079352653}
+  - component: {fileID: 8926931054395285066}
+  - component: {fileID: 7913926477751869010}
   m_Layer: 0
-  m_Name: golf ball (1)
+  m_Name: new golf ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2729496712079352642
+--- !u!4 &8926931054395285066
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2729496712079352643}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.37, y: -1.1, z: 0.50066584}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_GameObject: {fileID: 5324231250701663885}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2729496712045795122}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &2729496712079352653
+--- !u!212 &7913926477751869010
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2729496712079352643}
+  m_GameObject: {fileID: 5324231250701663885}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -156,7 +158,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3fcf011e4446a4748a2a6aa303da95d6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5c0cb461aef2d4352b2df22d24641264, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

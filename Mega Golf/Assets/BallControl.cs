@@ -100,6 +100,7 @@ public class BallControl : MonoBehaviour
                 direction = startPos - endPos;
                 rb.isKinematic = false;
                 rb.AddForce (direction * shootPower);
+                gameHandlerObj.AddStroke(1);
              }
          }
         
