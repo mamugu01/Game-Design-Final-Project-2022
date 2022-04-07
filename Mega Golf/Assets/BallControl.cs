@@ -46,28 +46,6 @@ public class BallControl : MonoBehaviour
     void Update()
     {
         check_stationary();
-        //only be able to hit when the ball is stationary and on the ground
-        if(stationary && collided){
-            if (Input.GetKeyDown("a")){
-            launch(10,5*Math.PI/6);
-            }
-            if (Input.GetKeyDown("s")){
-            launch(10,2*Math.PI/3);
-            }
-            if (Input.GetKeyDown("d")){
-            launch(10,Math.PI/3);
-            }
-            if (Input.GetKeyDown("f")){
-            launch(10,Math.PI/6);
-            }
-            if (Input.GetKeyDown("space")){
-            launch(10,Math.PI/2);
-            }
-                if (Input.GetKeyDown("g")){
-            launch(20,Math.PI/4);
-         }
-
-        }
         
     }
     
@@ -81,7 +59,16 @@ public class BallControl : MonoBehaviour
     }
     //check that the ball has stopped moving
     void check_stationary(){
-        stationary = rb.velocity.Equals(new Vector2(0,0));    
+        //reduce x velocity faster
+        if (rb.velocity.y == 0 && Math.Abs(rb.velocity.x) < 1){
+            rb.velocity = new Vector2(rb.velocity.x * 0.97f,0);
+            if (Math.Abs(rb.velocity.x) < .03){
+                rb.velocity = new Vector2(0,0);
+                rb.angularVelocity = 0;
+                stationary = true;
+            }
+        }
+        
     }
 
      

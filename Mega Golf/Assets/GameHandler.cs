@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameHandler : MonoBehaviour {
-
+      
       public GameObject strokeText;
       private int stroke_count = 0;
 
+      
       void Start(){
+            stroke_count = GlobalControl.Instance.strokes;
             UpdateStrokes();
       }
 
@@ -20,5 +22,10 @@ public class GameHandler : MonoBehaviour {
       void UpdateStrokes(){
             Text strokeTextB = strokeText.GetComponent<Text>();
             strokeTextB.text = "Strokes: " + stroke_count;
+            SaveData();
+      }
+      
+      public void SaveData(){
+          GlobalControl.Instance.strokes = stroke_count;
       }
 }
