@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2729496712045795120}
   - component: {fileID: 2729496712045795133}
   m_Layer: 0
-  m_Name: Ball 1
+  m_Name: Ball_Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

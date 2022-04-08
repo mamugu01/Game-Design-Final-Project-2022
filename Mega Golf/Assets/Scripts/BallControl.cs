@@ -12,6 +12,9 @@ public class BallControl : MonoBehaviour
     public GameHandler gameHandlerObj;
     public  float shootPower = 10f;
     Vector2 startPos, endPos, direction;
+    Vector2 ballPos;
+    private string ballType = "standard";
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,17 +23,28 @@ public class BallControl : MonoBehaviour
         if (GameObject.FindWithTag("GameHandler") != null){
             gameHandlerObj = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
          }
+         
+         if (this.tag == "grenade") ballType = "grenade";
+         
         
     }
-     public void OnCollisionEnter2D(Collision2D other){
+    public void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Goal")){
             EndGame();
         }
         else{
             collided =true;
         }
-
-        
+    }
+    
+    public void OnTriggerEnter2D(Collider2D other){
+        if(other.tag == "water"){
+            //reset ball and add a stroke penalty
+            rb.position = ballPos;
+            rb.velocity = new Vector2(0,0);
+            rb.angularVelocity = 0;
+            gameHandlerObj.AddStroke(1);
+        }
     }
     
     public void OnCollisionExit2D(Collision2D other){
@@ -46,6 +60,10 @@ public class BallControl : MonoBehaviour
     void Update()
     {
         check_stationary();
+        gameHandlerObj.UpdateReady(stationary);
+        if(Input.GetKeyDown("space")){
+            Trigger();
+        }
         
     }
     
@@ -59,6 +77,10 @@ public class BallControl : MonoBehaviour
     }
     //check that the ball has stopped moving
     void check_stationary(){
+        
+        if (rb.velocity != new Vector2(0,0)){
+            stationary = false;
+        }
         //reduce x velocity faster
         if (rb.velocity.y == 0 && Math.Abs(rb.velocity.x) < 1){
             rb.velocity = new Vector2(rb.velocity.x * 0.97f,0);
@@ -69,6 +91,7 @@ public class BallControl : MonoBehaviour
             }
         }
         
+        
     }
 
      
@@ -76,6 +99,7 @@ public class BallControl : MonoBehaviour
         if(stationary && collided){
             if (Input.GetMouseButtonDown (0)) {
                 startPos = Input.mousePosition;
+                ballPos = rb.position;
             }
         } 
 
@@ -92,4 +116,22 @@ public class BallControl : MonoBehaviour
          }
         
      }
+     
+     private void Trigger(){
+         if (ballType == "grenade" && !stationary){
+             Explode();
+         }
+     }
+     private void Explode(){
+         Debug.Log("BOOM!");
+         // GameObject[] results = new GameObject[] {};
+         Collider2D[] proximityCheck = Physics2D.OverlapCircleAll(rb.position, 1f);
+         foreach(Collider2D box in proximityCheck){
+             if (box.tag == "explodable"){
+                 Destroy(box.gameObject);
+             }
+         }
+         
+     }
+     
 }

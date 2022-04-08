@@ -8,6 +8,8 @@ TagManager:
   - Goal
   - GameHandler
   - grenade
+  - water
+  - explodable
   layers:
   - Default
   - TransparentFX

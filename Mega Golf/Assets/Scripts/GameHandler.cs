@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class GameHandler : MonoBehaviour {
       
-      public GameObject strokeText;
+      public GameObject strokeText, speedText;
       private int stroke_count = 0;
 
       
@@ -23,6 +24,19 @@ public class GameHandler : MonoBehaviour {
             Text strokeTextB = strokeText.GetComponent<Text>();
             strokeTextB.text = "Strokes: " + stroke_count;
             SaveData();
+      }
+      
+      public void UpdateReady(bool ready){
+          Text speedTextB = speedText.GetComponent<Text>();
+          if(ready){
+              speedTextB.text = "Ready";
+              speedTextB.color = Color.green;
+          }
+          else {
+              speedTextB.text = "Wait";
+              speedTextB.color = Color.red;
+          }
+          
       }
       
       public void SaveData(){
