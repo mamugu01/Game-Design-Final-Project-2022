@@ -24,7 +24,7 @@ public class BallControl : MonoBehaviour
             gameHandlerObj = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
          }
          
-         if (this.tag == "grenade") ballType = "grenade";
+         ballType = this.tag;
          
         
     }

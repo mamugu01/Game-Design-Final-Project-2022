@@ -94,13 +94,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball_Standard
       objectReference: {fileID: 0}
+    - target: {fileID: 2729496712045795121, guid: d25c075fb0932485bb649da1bd4a930d, type: 3}
+      propertyPath: m_TagString
+      value: standard
+      objectReference: {fileID: 0}
     - target: {fileID: 2729496712045795122, guid: d25c075fb0932485bb649da1bd4a930d, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2729496712045795122, guid: d25c075fb0932485bb649da1bd4a930d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.53
       objectReference: {fileID: 0}
     - target: {fileID: 2729496712045795122, guid: d25c075fb0932485bb649da1bd4a930d, type: 3}
       propertyPath: m_LocalPosition.y
