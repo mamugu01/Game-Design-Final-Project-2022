@@ -10,6 +10,7 @@ TagManager:
   - grenade
   - water
   - explodable
+  - standard
   layers:
   - Default
   - TransparentFX
