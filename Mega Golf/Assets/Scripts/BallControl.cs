@@ -11,6 +11,11 @@ public class BallControl : MonoBehaviour
     private bool stationary = false;
     public GameHandler gameHandlerObj;
     public  float shootPower = 10f;
+
+    public Vector2 minPower;
+    public Vector2 maxPower;
+
+    Vector2 force;
     Vector2 startPos, endPos, direction;
     Vector2 ballPos;
     private string ballType = "standard";
@@ -110,7 +115,8 @@ public class BallControl : MonoBehaviour
                  endPos = Input.mousePosition;
                 direction = startPos - endPos;
                 rb.isKinematic = false;
-                rb.AddForce (direction * shootPower);
+                force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
+                rb.AddForce (force * shootPower);
                 gameHandlerObj.AddStroke(1);
              }
          }
