@@ -10,21 +10,27 @@ public class BallControl : MonoBehaviour
     private bool collided;
     private bool stationary = false;
     public GameHandler gameHandlerObj;
-    public  float shootPower = 10f;
+    public  float shootPower = 5f;
 
     public Vector2 minPower;
     public Vector2 maxPower;
 
     Vector2 force;
-    Vector2 startPos, endPos, direction;
+    Vector3 startPos, endPos, direction; 
     Vector2 ballPos;
     private string ballType = "standard";
+
+    public TrajectoryLine tl;
+
+    Camera cam;
     
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D> ();
+        cam = Camera.main;
+        tl = GetComponent<TrajectoryLine>();
         if (GameObject.FindWithTag("GameHandler") != null){
             gameHandlerObj = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
          }
@@ -33,6 +39,7 @@ public class BallControl : MonoBehaviour
          
         
     }
+
     public void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Goal")){
             EndGame();
@@ -69,7 +76,38 @@ public class BallControl : MonoBehaviour
         if(Input.GetKeyDown("space")){
             Trigger();
         }
-        
+      
+        if(stationary && collided){
+            if (Input.GetMouseButtonDown (0)) {
+                startPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                startPos.z = 15;
+
+                ballPos = rb.position;
+            }
+
+            if(Input.GetMouseButton(0)){
+                Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
+                currentPoint.z = 15;
+                tl.RenderLine(currentPoint, startPos);
+            }
+            if (Input.GetMouseButtonUp (0)) {
+                endPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                endPos.z = 15;
+
+                direction = (startPos - endPos);
+                rb.isKinematic = false;
+                force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
+                rb.AddForce (force * shootPower, ForceMode2D.Impulse);
+                tl.EndLine();
+                gameHandlerObj.AddStroke(1);
+
+                
+             }
+
+
+
+
+         }
     }
     
     //give the ball a speed and angle
@@ -100,28 +138,8 @@ public class BallControl : MonoBehaviour
     }
 
      
-     void OnMouseDown (){
-        if(stationary && collided){
-            if (Input.GetMouseButtonDown (0)) {
-                startPos = Input.mousePosition;
-                ballPos = rb.position;
-            }
-        } 
-
-     }
-     void OnMouseUp (){
-         if(stationary && collided){
-            if (Input.GetMouseButtonUp (0)) {
-                 endPos = Input.mousePosition;
-                direction = startPos - endPos;
-                rb.isKinematic = false;
-                force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
-                rb.AddForce (force * shootPower);
-                gameHandlerObj.AddStroke(1);
-             }
-         }
-        
-     }
+     
+ 
      
      private void Trigger(){
          if (ballType == "grenade" && !stationary){
