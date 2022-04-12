@@ -37,12 +37,16 @@ public class BallControl : MonoBehaviour
          
          ballType = this.tag;
          
+         
         
     }
 
     public void OnCollisionEnter2D(Collision2D other){
         if(other.gameObject.CompareTag("Goal")){
-            EndGame();
+            Debug.Log("done");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            gameHandlerObj.UpdateScorecard();
+
         }
         else{
             collided =true;
