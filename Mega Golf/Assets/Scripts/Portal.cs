@@ -28,7 +28,11 @@ public class Portal : MonoBehaviour
     void Update()
     {
         if (delay) delayCount++;
-        if (delayCount > 10) delay = false;
+        if (delayCount > 10){
+            delay=false;
+            delayCount=0;
+            
+        } 
     }
     
     public void OnTriggerEnter2D(Collider2D other){

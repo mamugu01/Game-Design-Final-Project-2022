@@ -1147,19 +1147,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 662708095, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -530
+      value: -524
       objectReference: {fileID: 0}
     - target: {fileID: 662708095, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 430
+      value: 326
       objectReference: {fileID: 0}
     - target: {fileID: 5021038035930263322, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 499
+      value: 515.69
       objectReference: {fileID: 0}
     - target: {fileID: 5021038035930263322, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 421
+      value: 326
       objectReference: {fileID: 0}
     - target: {fileID: 5021038036806151329, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
       propertyPath: m_Name
@@ -2418,7 +2418,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 470, y: -420}
+  m_AnchoredPosition: {x: 470, y: -320}
   m_SizeDelta: {x: 288.9359, y: 40.3547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1918182938
