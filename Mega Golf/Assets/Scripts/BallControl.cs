@@ -97,13 +97,14 @@ public class BallControl : MonoBehaviour
             if (Input.GetMouseButtonUp (0)) {
                 endPos = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPos.z = 15;
-
+                
                 direction = (startPos - endPos);
                 rb.isKinematic = false;
                 force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
                 rb.AddForce (force * shootPower, ForceMode2D.Impulse);
                 tl.EndLine();
                 gameHandlerObj.AddStroke(1);
+                Debug.Log(force);
 
                 
              }
@@ -149,6 +150,9 @@ public class BallControl : MonoBehaviour
          if (ballType == "grenade" && !stationary){
              Explode();
          }
+         if (ballType == "gravity" && !stationary){
+             Warp();
+         }
      }
      private void Explode(){
          Debug.Log("BOOM!");
@@ -160,6 +164,12 @@ public class BallControl : MonoBehaviour
              }
          }
          
+     }
+     
+     private void Warp(){
+         Debug.Log("woohoo");
+         rb.gravityScale = -rb.gravityScale;
+         gameHandlerObj.AddStroke(1);
      }
      
 }

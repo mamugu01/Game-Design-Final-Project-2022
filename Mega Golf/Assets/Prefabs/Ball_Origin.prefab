@@ -87,8 +87,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   gameHandlerObj: {fileID: 0}
   shootPower: 10
-  minPower: {x: 0, y: 0}
-  maxPower: {x: 0, y: 0}
+  minPower: {x: -100, y: -100}
+  maxPower: {x: 100, y: 100}
   tl: {fileID: 0}
 --- !u!120 &9039448903553314095
 LineRenderer:
