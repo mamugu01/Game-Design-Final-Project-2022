@@ -11,6 +11,7 @@ TagManager:
   - water
   - explodable
   - standard
+  - gravity
   layers:
   - Default
   - TransparentFX
