@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+
 
 public class BallControl : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class BallControl : MonoBehaviour
     private bool stationary = false;
     public GameHandler gameHandlerObj;
     public  float shootPower = 5f;
+    
+    // public Slider spinSlider;
 
     public Vector2 minPower;
     public Vector2 maxPower;
@@ -102,10 +106,10 @@ public class BallControl : MonoBehaviour
                 rb.isKinematic = false;
                 force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
                 rb.AddForce (force * shootPower, ForceMode2D.Impulse);
+                rb.angularVelocity = -1000 * gameHandlerObj.getSpin();
                 tl.EndLine();
                 gameHandlerObj.AddStroke(1);
-                Debug.Log(force);
-
+            
                 
              }
 
@@ -171,5 +175,7 @@ public class BallControl : MonoBehaviour
          rb.gravityScale = -rb.gravityScale;
          gameHandlerObj.AddStroke(1);
      }
+     
+    
      
 }

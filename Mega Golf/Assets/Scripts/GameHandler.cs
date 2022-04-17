@@ -12,9 +12,13 @@ public class GameHandler : MonoBehaviour {
       private int stroke_count = 0;
       private int[] scores = new int[3];
       private int currHole = 0;
+      private float spin = 0;
+      public Slider spinSlider;
 
       
       void Start(){
+            
+            
             stroke_count = 0;
             for(int i =0; i< 3; i++){
                 scores[i] = GlobalControl.Instance.scorecard[i];
@@ -68,6 +72,12 @@ public class GameHandler : MonoBehaviour {
           finalScoreTextB.text = "Hole:  1   2   3   Tot.  \n      " 
                                 +scores[0]+ "   "+ scores[1] + "   "+ scores[2]
                                 +"   "+ sum;
+                                
+        currHole = 0;
+        for(int i =0; i< 3; i++){
+            scores[i] = 0;
+        }
+        SaveData();
           
       }
       
@@ -77,5 +87,14 @@ public class GameHandler : MonoBehaviour {
           }
           GlobalControl.Instance.currHole = currHole;
 
+      }
+      
+      public void OnValueChanged(){
+          spin = spinSlider.value;
+          Debug.Log(spin);
+      }
+      
+      public float getSpin(){
+          return spin;
       }
 }
