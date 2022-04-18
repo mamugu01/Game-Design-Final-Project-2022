@@ -12,6 +12,7 @@ TagManager:
   - explodable
   - standard
   - gravity
+  - sand
   layers:
   - Default
   - TransparentFX

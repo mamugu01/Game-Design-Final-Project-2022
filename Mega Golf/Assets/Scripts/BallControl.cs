@@ -85,7 +85,8 @@ public class BallControl : MonoBehaviour
             Trigger();
         }
       
-        if(stationary && collided){
+        //removed && collided here, not sure if collided was necessary
+        if(stationary){
             if (Input.GetMouseButtonDown (0)) {
                 startPos = cam.ScreenToWorldPoint(Input.mousePosition);
                 startPos.z = 15;
