@@ -11,6 +11,8 @@ public class BallControl : MonoBehaviour
     public Rigidbody2D rb;
     private bool collided;
     private bool stationary = false;
+
+    private bool sticky = false;
     public GameHandler gameHandlerObj;
     public  float shootPower = 5f;
     
@@ -54,6 +56,12 @@ public class BallControl : MonoBehaviour
         }
         else{
             collided =true;
+            if(sticky){
+                rb.isKinematic = false;
+                rb.velocity = new Vector2(0,0);
+                rb.gravityScale = 0;
+
+            }
         }
     }
     
@@ -69,6 +77,7 @@ public class BallControl : MonoBehaviour
     
     public void OnCollisionExit2D(Collision2D other){
         collided =false;
+        
     }
     
      void EndGame(){
@@ -102,8 +111,10 @@ public class BallControl : MonoBehaviour
             if (Input.GetMouseButtonUp (0)) {
                 endPos = cam.ScreenToWorldPoint(Input.mousePosition);
                 endPos.z = 15;
+                rb.gravityScale = 1;
                 
                 direction = (startPos - endPos);
+                sticky = false;
                 rb.isKinematic = false;
                 force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
                 rb.AddForce (force * shootPower, ForceMode2D.Impulse);
@@ -158,6 +169,10 @@ public class BallControl : MonoBehaviour
          if (ballType == "gravity" && !stationary){
              Warp();
          }
+
+        if (ballType == "sticky"){
+            sticky = true;
+        }
      }
      private void Explode(){
          Debug.Log("BOOM!");
