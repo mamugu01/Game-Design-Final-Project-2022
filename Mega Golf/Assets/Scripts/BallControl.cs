@@ -37,6 +37,8 @@ public class BallControl : MonoBehaviour
         rb = GetComponent<Rigidbody2D> ();
         cam = Camera.main;
         tl = GetComponent<TrajectoryLine>();
+        tl.EndLine();
+        
         if (GameObject.FindWithTag("GameHandler") != null){
             gameHandlerObj = GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>();
          }
