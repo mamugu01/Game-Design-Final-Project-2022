@@ -4,6 +4,8 @@ using UnityEngine;
 using System;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+
 
 
 public class BallControl : MonoBehaviour
@@ -13,6 +15,7 @@ public class BallControl : MonoBehaviour
     private bool stationary = false;
 
     private bool sticky = false;
+    private bool disable = false;
     public GameHandler gameHandlerObj;
     public  float shootPower = 5f;
     
@@ -98,31 +101,36 @@ public class BallControl : MonoBehaviour
       
         //removed && collided here, not sure if collided was necessary
         if(stationary){
-            if (Input.GetMouseButtonDown (0)) {
+            if (Input.GetMouseButtonDown (0) && !disable) {
                 startPos = cam.ScreenToWorldPoint(Input.mousePosition);
                 startPos.z = 15;
 
                 ballPos = rb.position;
+                disable = EventSystem.current.IsPointerOverGameObject();
             }
 
-            if(Input.GetMouseButton(0)){
+            if(Input.GetMouseButton(0)&& !disable){
                 Vector3 currentPoint = cam.ScreenToWorldPoint(Input.mousePosition);
                 currentPoint.z = 15;
                 tl.RenderLine(currentPoint, startPos);
             }
             if (Input.GetMouseButtonUp (0)) {
-                endPos = cam.ScreenToWorldPoint(Input.mousePosition);
-                endPos.z = 15;
-                rb.gravityScale = 1;
-                
-                direction = (startPos - endPos);
-                sticky = false;
-                rb.isKinematic = false;
-                force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
-                rb.AddForce (force * shootPower, ForceMode2D.Impulse);
-                rb.angularVelocity = -1000 * gameHandlerObj.getSpin();
-                tl.EndLine();
-                gameHandlerObj.AddStroke(1);
+                if (!disable){
+                    endPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                    endPos.z = 15;
+                    rb.gravityScale = 1;
+                    
+                    direction = (startPos - endPos);
+                    sticky = false;
+                    rb.isKinematic = false;
+                    force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
+                    rb.AddForce (force * shootPower, ForceMode2D.Impulse);
+                    rb.angularVelocity = -1000 * gameHandlerObj.getSpin();
+                    tl.EndLine();
+                    gameHandlerObj.AddStroke(1);
+                    gameHandlerObj.resetSpin();
+                }
+                else disable = false;
             
                 
              }

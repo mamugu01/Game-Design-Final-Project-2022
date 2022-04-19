@@ -91,10 +91,14 @@ public class GameHandler : MonoBehaviour {
       
       public void OnValueChanged(){
           spin = spinSlider.value;
-          Debug.Log(spin);
       }
       
       public float getSpin(){
           return spin;
+      }
+      
+      public void resetSpin(){
+          spin = 0;
+          spinSlider.value = 0;
       }
 }
