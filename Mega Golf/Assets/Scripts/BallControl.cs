@@ -18,6 +18,7 @@ public class BallControl : MonoBehaviour
     private bool disable = false;
     public GameHandler gameHandlerObj;
     public  float shootPower = 5f;
+    private float currGrav = 1;
     
     // public Slider spinSlider;
 
@@ -118,7 +119,7 @@ public class BallControl : MonoBehaviour
                 if (!disable){
                     endPos = cam.ScreenToWorldPoint(Input.mousePosition);
                     endPos.z = 15;
-                    rb.gravityScale = 1;
+                    rb.gravityScale = currGrav;
                     
                     direction = (startPos - endPos);
                     sticky = false;
@@ -199,6 +200,7 @@ public class BallControl : MonoBehaviour
      private void Warp(){
          Debug.Log("woohoo");
          rb.gravityScale = -rb.gravityScale;
+         currGrav =  rb.gravityScale;
          gameHandlerObj.AddStroke(1);
      }
      

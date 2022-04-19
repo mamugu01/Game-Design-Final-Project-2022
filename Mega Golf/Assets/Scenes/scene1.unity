@@ -227,8 +227,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 357392178}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 34.11, y: 5.8555, z: 0}
-  m_LocalScale: {x: -0.21367131, y: -19.986916, z: 1}
+  m_LocalPosition: {x: 34.7542, y: 6.41, z: 0}
+  m_LocalScale: {x: -1.655, y: -21.05949, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -321,8 +321,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 446121866}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.9164, y: -10.6153, z: 0}
-  m_LocalScale: {x: 49.869816, y: 9.7784605, z: 1}
+  m_LocalPosition: {x: 12.78, y: -10.3274, z: 0}
+  m_LocalScale: {x: 45.599754, y: 9.202509, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 21
@@ -593,7 +593,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.023529414, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -611,8 +611,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 798516328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.9667, y: 6.4506, z: 0}
-  m_LocalScale: {x: -1.136808, y: -20.982468, z: 1}
+  m_LocalPosition: {x: -9.2261, y: 6.3641, z: 0}
+  m_LocalScale: {x: -1.6555336, y: -21.154526, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -965,19 +965,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 22.208075
+      value: 18.12821
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.9876984
+      value: 2.1274335
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.5563
+      value: 26.5166
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.99
+      value: -5.0599
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1598,7 +1598,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3907188, g: 0.6792453, b: 0.15699539, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1616,7 +1616,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1856218143}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.9, y: 14.3618, z: 0}
+  m_LocalPosition: {x: 12.7, y: 16.54, z: 0}
   m_LocalScale: {x: 45, y: 0.8057833, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2008,17 +2008,9 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 380223356, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 380223356, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1466309793}
-    - target: {fileID: 380223356, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
-      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnValueChanged
-      objectReference: {fileID: 0}
     - target: {fileID: 779938580, guid: f30820a6e416241a285c82ab5bf4365e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
