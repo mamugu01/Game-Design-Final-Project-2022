@@ -17,7 +17,7 @@ public class BallControl : MonoBehaviour
     private bool sticky = false;
     private bool disable = false;
     public GameHandler gameHandlerObj;
-    public  float shootPower = 2f;
+    public  float shootPower = 5f;
     private float currGrav = 1;
     
     // public Slider spinSlider;
