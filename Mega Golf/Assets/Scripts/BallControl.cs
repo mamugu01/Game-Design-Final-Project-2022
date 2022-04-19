@@ -17,7 +17,7 @@ public class BallControl : MonoBehaviour
     private bool sticky = false;
     private bool disable = false;
     public GameHandler gameHandlerObj;
-    public  float shootPower = 5f;
+    public  float shootPower = 2f;
     private float currGrav = 1;
     
     // public Slider spinSlider;
@@ -82,7 +82,7 @@ public class BallControl : MonoBehaviour
     }
     
     public void OnCollisionExit2D(Collision2D other){
-        collided =false;
+        collided = false;
         
     }
     
@@ -95,6 +95,7 @@ public class BallControl : MonoBehaviour
     void Update()
     {
         check_stationary();
+        check_reset();
         gameHandlerObj.UpdateReady(stationary);
         if(Input.GetKeyDown("space")){
             Trigger();
@@ -169,6 +170,17 @@ public class BallControl : MonoBehaviour
         
     }
 
+    //check if reset key is pressed
+    void check_reset(){
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            //reset ball and add a stroke penalty
+            rb.position = ballPos;
+            rb.velocity = new Vector2(0,0);
+            rb.angularVelocity = 0;
+            gameHandlerObj.AddStroke(1);
+        }
+    }
      
      
  
