@@ -2104,6 +2104,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball_Bouncy
       objectReference: {fileID: 0}
+    - target: {fileID: 4822025526684285706, guid: a2daf59c66a974708b2d457ac50a62eb, type: 3}
+      propertyPath: maxPower.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822025526684285706, guid: a2daf59c66a974708b2d457ac50a62eb, type: 3}
+      propertyPath: maxPower.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822025526684285706, guid: a2daf59c66a974708b2d457ac50a62eb, type: 3}
+      propertyPath: minPower.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4822025526684285706, guid: a2daf59c66a974708b2d457ac50a62eb, type: 3}
+      propertyPath: minPower.y
+      value: -3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2daf59c66a974708b2d457ac50a62eb, type: 3}
 --- !u!1001 &5597900164744161005
