@@ -24,6 +24,7 @@ public class BallControl : MonoBehaviour
 
     public Vector2 minPower;
     public Vector2 maxPower;
+    public Vector2 windPosition;
 
     Vector2 force;
     Vector3 startPos, endPos, direction; 
@@ -79,6 +80,14 @@ public class BallControl : MonoBehaviour
             rb.angularVelocity = 0;
             gameHandlerObj.AddStroke(1);
         }
+    }
+
+    public void OnTriggerStay2D(Collider2D other){
+        if(other.tag == "Wind"){
+                    float windAngle = other.transform.rotation.eulerAngles.z*(float)(3.1416/180);
+                    windPosition = new Vector2(-1*(float)Math.Sin(windAngle),(float)Math.Cos(windAngle));
+                    rb.AddForce(windPosition*5000*Time.deltaTime);
+                }
     }
     
     public void OnCollisionExit2D(Collision2D other){

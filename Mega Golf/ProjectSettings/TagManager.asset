@@ -14,6 +14,7 @@ TagManager:
   - gravity
   - sand
   - sticky
+  - Wind
   layers:
   - Default
   - TransparentFX
