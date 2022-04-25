@@ -14,7 +14,11 @@ TagManager:
   - gravity
   - sand
   - sticky
+<<<<<<< Updated upstream
   - Wind
+=======
+  - bouncy
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
