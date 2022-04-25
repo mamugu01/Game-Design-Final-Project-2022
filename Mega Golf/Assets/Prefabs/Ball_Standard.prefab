@@ -83,19 +83,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &919854620
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 678320889591334469}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 842d1617173cef043a108133737e2e3f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lr: {fileID: 0}
 --- !u!96 &919854616
 TrailRenderer:
   serializedVersion: 2
@@ -147,7 +134,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.28750038
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -294,6 +281,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &919854620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678320889591334469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 842d1617173cef043a108133737e2e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lr: {fileID: 0}
 --- !u!114 &3171410574417157351
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,7 +328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2729496712045795122, guid: d25c075fb0932485bb649da1bd4a930d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.53
+      value: -2.88
       objectReference: {fileID: 0}
     - target: {fileID: 2729496712045795122, guid: d25c075fb0932485bb649da1bd4a930d, type: 3}
       propertyPath: m_LocalPosition.y
