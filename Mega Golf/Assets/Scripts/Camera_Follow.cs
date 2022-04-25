@@ -19,5 +19,9 @@ void FixedUpdate() {
     transform.position = smoothPos;
 }
 
+public void SetTarget(Transform newTarget){
+    this.target = newTarget;
+}
+
 
 }

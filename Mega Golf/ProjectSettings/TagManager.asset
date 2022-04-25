@@ -15,6 +15,7 @@ TagManager:
   - sand
   - sticky
   - Wind
+  - freeze
   layers:
   - Default
   - TransparentFX

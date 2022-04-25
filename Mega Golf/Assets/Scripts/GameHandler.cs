@@ -8,20 +8,18 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour {
       
-      public GameObject strokeText, speedText, finalScoreText;
+      public GameObject strokeText, speedText, finalScoreText, typeText;
       private int stroke_count = 0;
       private int[] scores = new int[3];
       private int currHole = 0;
       private float spin = 0;
       public Slider spinSlider;
-      public GameObject[] balls;
+      private GameObject[] balls;
       private int ballIndex = 0;
-      private GameObject cam;
+     GameObject cam;
 
       
       void Start(){
-            
-            
             stroke_count = 0;
             for(int i =0; i< 3; i++){
                 scores[i] = GlobalControl.Instance.scorecard[i];
@@ -35,19 +33,17 @@ public class GameHandler : MonoBehaviour {
                       GameObject.Find("Ball_Bouncy Variant"), GameObject.Find("Ball_Grenade"), GameObject.Find("Ball_Gravity"), 
                       GameObject.Find("Ball_Sticky"), GameObject.Find("Ball_Freeze")};
                       
-            for (int i = 0; i < 6; i++) Debug.Log(balls[i].tag);
+            for (int i = 0; i < 6; i++) if(balls[i] != null) Debug.Log(balls[i].tag);
             
             cam = GameObject.FindWithTag("MainCamera");
-            // SetActiveObject(2);
-            // balls[0].GetComponent<Rigidbody2D>().velocity = new Vector2(3,3);
-            
-            
+            UpdateTypeText();
       }
       void Update(){
           SetActiveObject(ballIndex);
           if(Input.GetKeyDown("b")){
-              Switch();
+              if (balls[ballIndex].GetComponent<BallControl>().isStationary()) Switch();
           }
+          
       }
 
       public void AddStroke(int num){
@@ -112,6 +108,7 @@ public class GameHandler : MonoBehaviour {
       
       public void OnValueChanged(){
           spin = spinSlider.value;
+          Debug.Log(spin);
       }
       
       public float getSpin(){
@@ -126,15 +123,38 @@ public class GameHandler : MonoBehaviour {
       public void SetActiveObject(int aIndex){
           ballIndex = aIndex;
           for(int i = 0; i < balls.Length; i++) if(balls[i] != null) balls[i].SetActive(i == ballIndex);
-          // cam.GetComponent<Camera_Follow>().target = balls[ballIndex].transform;
       }
       
       private void Switch(){
-          SetActiveObject((ballIndex + 1) % 6);
-          Debug.Log(ballIndex);
-          Debug.Log(cam);
-          cam.GetComponent<Camera_Follow>().target = balls[ballIndex].transform;
-
+          Vector2 pos = balls[ballIndex].transform.position;
+          int nextIndex = FindNextIndex(ballIndex);
+          Debug.Log(nextIndex);
+          SetActiveObject(nextIndex);
+          balls[ballIndex].transform.position = pos;
+          cam.GetComponent<Camera_Follow>().SetTarget(balls[ballIndex].transform); 
+          UpdateTypeText();
+      }
+      
+      private int FindNextIndex(int currIndex){
+          for (int i = 1; i < 6; i++){
+             if(balls[(currIndex + i) % 6] != null) return (currIndex + i) % 6;
+          }
+          return currIndex;
+      }
+      
+      
+      public void UpdateTypeText(){
+          string type = "";
+          string tag = balls[ballIndex].tag;
           
+          if (tag == "standard") type = "Standard";
+          if (tag == "grenade") type = "Grenade";
+          if (tag == "sticky") type = "Sticky";
+          if (tag == "freeze") type = "Freeze";
+          if (tag == "gravity") type = "Gravity Warp";
+          if (tag == "bouncy") type = "Bouncy";
+         
+          Text TypeTextB = typeText.GetComponent<Text>();
+          TypeTextB.text = "Ball Type: " + type;
       }
 }

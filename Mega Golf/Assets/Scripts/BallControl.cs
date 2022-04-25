@@ -34,6 +34,7 @@ public class BallControl : MonoBehaviour
     public TrajectoryLine tl;
 
     Camera cam;
+    private bool powerUsed = false;
     
 
     // Start is called before the first frame update
@@ -67,6 +68,7 @@ public class BallControl : MonoBehaviour
                 rb.isKinematic = false;
                 rb.velocity = new Vector2(0,0);
                 rb.gravityScale = 0;
+                
 
             }
         }
@@ -109,7 +111,7 @@ public class BallControl : MonoBehaviour
         if(Input.GetKeyDown("space")){
             Trigger();
         }
-      
+        if (stationary && collided) powerUsed = false;
         //removed && collided here, not sure if collided was necessary
         if(stationary){
             if (Input.GetMouseButtonDown (0) && !disable) {
@@ -137,6 +139,7 @@ public class BallControl : MonoBehaviour
                     force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
                     rb.AddForce (force * shootPower, ForceMode2D.Impulse);
                     rb.angularVelocity = -1000 * gameHandlerObj.getSpin();
+                    Debug.Log(gameHandlerObj.getSpin());
                     tl.EndLine();
                     gameHandlerObj.AddStroke(1);
                     gameHandlerObj.resetSpin();
@@ -198,13 +201,14 @@ public class BallControl : MonoBehaviour
          if (ballType == "grenade" && !stationary){
              Explode();
          }
-         if (ballType == "gravity" && !stationary){
+         if ((ballType == "gravity" && !powerUsed ) && !stationary){
              Warp();
          }
 
         if (ballType == "sticky"){
             sticky = true;
         }
+        if ((ballType == "freeze" && !powerUsed )&& !stationary) Freeze();
      }
      private void Explode(){
          Debug.Log("BOOM!");
@@ -222,9 +226,17 @@ public class BallControl : MonoBehaviour
          Debug.Log("woohoo");
          rb.gravityScale = -rb.gravityScale;
          currGrav =  rb.gravityScale;
-         gameHandlerObj.AddStroke(1);
+         powerUsed = true;
+         // gameHandlerObj.AddStroke(1);
      }
      
+    public bool isStationary(){return stationary;}
+    
+    private void Freeze(){
+        rb.velocity = new Vector2(0,0);
+        powerUsed = true;
+
+    }
     
      
 }
