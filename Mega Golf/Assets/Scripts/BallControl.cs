@@ -234,6 +234,7 @@ public class BallControl : MonoBehaviour
     
     private void Freeze(){
         rb.velocity = new Vector2(0,0);
+        rb.angularVelocity = 0;
         powerUsed = true;
 
     }
