@@ -55,7 +55,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &2729496712045795120
 CircleCollider2D:
@@ -90,6 +90,7 @@ MonoBehaviour:
   shootPower: 10
   minPower: {x: -2, y: -2}
   maxPower: {x: 2, y: 2}
+  windPosition: {x: 0, y: 0}
   tl: {fileID: 0}
 --- !u!120 &9039448903553314095
 LineRenderer:

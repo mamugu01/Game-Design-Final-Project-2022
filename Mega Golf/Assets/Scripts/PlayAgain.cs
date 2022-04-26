@@ -7,7 +7,7 @@ public class PlayAgain : MonoBehaviour
 {
     public void Restart()
     {
-        GlobalControl.Instance.scorecard = new int[]{0,0,0};
-        SceneManager.LoadScene("scene1");
+        GlobalControl.Instance.scorecard = new int[]{0,0,0,0};
+        SceneManager.LoadScene("scene1 1");
     }
 }

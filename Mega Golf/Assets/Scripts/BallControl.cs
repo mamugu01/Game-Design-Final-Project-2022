@@ -67,6 +67,7 @@ public class BallControl : MonoBehaviour
             if(sticky){
                 rb.isKinematic = false;
                 rb.velocity = new Vector2(0,0);
+                rb.angularVelocity = 0;
                 rb.gravityScale = 0;
                 
 
@@ -138,7 +139,7 @@ public class BallControl : MonoBehaviour
                     rb.isKinematic = false;
                     force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
                     rb.AddForce (force * shootPower, ForceMode2D.Impulse);
-                    rb.angularVelocity = -1000 * gameHandlerObj.getSpin();
+                    rb.angularVelocity = -1000 * (direction.x / Math.Abs(direction.x) ) * gameHandlerObj.getSpin();
                     Debug.Log(gameHandlerObj.getSpin());
                     tl.EndLine();
                     gameHandlerObj.AddStroke(1);
@@ -172,7 +173,7 @@ public class BallControl : MonoBehaviour
         //reduce x velocity faster
         if (rb.velocity.y == 0 && Math.Abs(rb.velocity.x) < 1){
             rb.velocity = new Vector2(rb.velocity.x * 0.97f,0);
-            if (Math.Abs(rb.velocity.x) < .03){
+            if (Math.Abs(rb.velocity.x) < .07){
                 rb.velocity = new Vector2(0,0);
                 rb.angularVelocity = 0;
                 stationary = true;

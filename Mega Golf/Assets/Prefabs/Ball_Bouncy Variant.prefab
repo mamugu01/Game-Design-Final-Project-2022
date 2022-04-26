@@ -21,7 +21,11 @@ PrefabInstance:
       objectReference: {fileID: 6200000, guid: 509d88c2d0b2a374092cf1a75251fb0d, type: 2}
     - target: {fileID: 678320889591334469, guid: 30babcb3a65a043a5802414100ca3d21, type: 3}
       propertyPath: m_Name
-      value: Ball_Bouncy
+      value: Ball_Bouncy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 678320889591334469, guid: 30babcb3a65a043a5802414100ca3d21, type: 3}
+      propertyPath: m_TagString
+      value: bouncy
       objectReference: {fileID: 0}
     - target: {fileID: 678320889591334470, guid: 30babcb3a65a043a5802414100ca3d21, type: 3}
       propertyPath: m_RootOrder

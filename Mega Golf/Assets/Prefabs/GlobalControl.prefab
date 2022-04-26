@@ -43,4 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdfeb5e908434e47a3f8236de7213d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strokes: 0
+  currHole: 0
+  scorecard: 00000000000000000000000000000000

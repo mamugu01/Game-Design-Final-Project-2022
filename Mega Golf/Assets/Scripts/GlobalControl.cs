@@ -7,7 +7,7 @@ public class GlobalControl : MonoBehaviour
     
     public static GlobalControl Instance;
     public int currHole;
-    public int[] scorecard = new int[3];
+    public int[] scorecard = new int[4];
 
     void Awake (){
         if (Instance == null){

@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour {
       
       public GameObject strokeText, speedText, finalScoreText, typeText;
       private int stroke_count = 0;
-      private int[] scores = new int[3];
+      private int[] scores = new int[4];
       private int currHole = 0;
       private float spin = 0;
       public Slider spinSlider;
@@ -21,8 +21,13 @@ public class GameHandler : MonoBehaviour {
       
       void Start(){
             stroke_count = 0;
-            for(int i =0; i< 3; i++){
-                scores[i] = GlobalControl.Instance.scorecard[i];
+            for(int i =0; i< 4; i++){
+                // scores[i] = GlobalControl.Instance.scorecard[i];
+                Debug.Log(scores[i]);
+            }
+            for(int i =0; i< 4; i++){
+                // scores[i] = GlobalControl.Instance.scorecard[i];
+                Debug.Log(GlobalControl.Instance.scorecard[i]);
             }
             currHole = GlobalControl.Instance.currHole;
             UpdateStrokes();
@@ -84,14 +89,14 @@ public class GameHandler : MonoBehaviour {
       void PrintScorecard(){
           Debug.Log("In Print scorecard");
 
-          int sum = scores[0]+scores[1]+scores[2];
+          int sum = scores[0]+scores[1]+scores[2]+ scores[3];
           Text finalScoreTextB = finalScoreText.GetComponent<Text>();
-          finalScoreTextB.text = "Hole:  1   2   3   Tot.  \n      " 
+          finalScoreTextB.text = "Hole:  1   2   3   4   Tot.  \n      " 
                                 +scores[0]+ "   "+ scores[1] + "   "+ scores[2]
-                                +"   "+ sum;
+                                + "   "+ scores[3]+"   "+ sum;
                                 
         currHole = 0;
-        for(int i =0; i< 3; i++){
+        for(int i =0; i< 4; i++){
             scores[i] = 0;
         }
         SaveData();
@@ -99,7 +104,7 @@ public class GameHandler : MonoBehaviour {
       }
       
       public void SaveData(){
-          for(int i =0; i< 3; i++){
+          for(int i =0; i< 4; i++){
               GlobalControl.Instance.scorecard[i] = scores[i];
           }
           GlobalControl.Instance.currHole = currHole;
@@ -156,5 +161,6 @@ public class GameHandler : MonoBehaviour {
          
           Text TypeTextB = typeText.GetComponent<Text>();
           TypeTextB.text = "Ball Type: " + type;
+          Debug.Log(TypeTextB.text);
       }
 }
