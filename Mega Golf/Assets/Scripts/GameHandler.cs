@@ -22,13 +22,10 @@ public class GameHandler : MonoBehaviour {
       void Start(){
             stroke_count = 0;
             for(int i =0; i< 4; i++){
-                // scores[i] = GlobalControl.Instance.scorecard[i];
-                Debug.Log(scores[i]);
+                scores[i] = GlobalControl.Instance.scorecard[i];
+                // Debug.Log(scores[i]);
             }
-            for(int i =0; i< 4; i++){
-                // scores[i] = GlobalControl.Instance.scorecard[i];
-                Debug.Log(GlobalControl.Instance.scorecard[i]);
-            }
+            
             currHole = GlobalControl.Instance.currHole;
             UpdateStrokes();
             
