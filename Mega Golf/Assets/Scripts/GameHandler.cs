@@ -16,7 +16,10 @@ public class GameHandler : MonoBehaviour {
       public Slider spinSlider;
       private GameObject[] balls;
       private int ballIndex = 0;
-     GameObject cam;
+      GameObject cam;
+      Dropdown dropMenu;
+      GameObject menuObject;
+      List<string> menuOptions = new List<string> {};
 
       
       void Start(){
@@ -35,16 +38,25 @@ public class GameHandler : MonoBehaviour {
                       GameObject.Find("Ball_Bouncy Variant"), GameObject.Find("Ball_Grenade"), GameObject.Find("Ball_Gravity"), 
                       GameObject.Find("Ball_Sticky"), GameObject.Find("Ball_Freeze")};
                       
-            for (int i = 0; i < 6; i++) if(balls[i] != null) Debug.Log(balls[i].tag);
+            for (int i = 0; i < 6; i++) if(balls[i] != null) menuOptions.Add(balls[i].tag);
             
             cam = GameObject.FindWithTag("MainCamera");
+            menuObject = GameObject.Find("Dropdown");
+            dropMenu = menuObject.GetComponent<Dropdown>();
+            dropMenu.ClearOptions();
+            dropMenu.AddOptions(menuOptions);
+            
+            SetActiveObject(ballIndex);
+
+            
             UpdateTypeText();
       }
       void Update(){
-          SetActiveObject(ballIndex);
-          if(Input.GetKeyDown("b")){
-              if (balls[ballIndex].GetComponent<BallControl>().isStationary()) Switch();
-          }
+          // SetActiveObject(ballIndex);
+          // if(Input.GetKeyDown("b")){
+        if (!balls[ballIndex].GetComponent<BallControl>().isStationary()) menuObject.SetActive(false);
+        else menuObject.SetActive(true);
+          // }
           
       }
 
@@ -127,9 +139,17 @@ public class GameHandler : MonoBehaviour {
           for(int i = 0; i < balls.Length; i++) if(balls[i] != null) balls[i].SetActive(i == ballIndex);
       }
       
-      private void Switch(){
+      private void Switch(string ballType){
           Vector2 pos = balls[ballIndex].transform.position;
-          int nextIndex = FindNextIndex(ballIndex);
+          int nextIndex = ballIndex;
+          
+          if (ballType == "standard") nextIndex = 0;
+          if (ballType == "bouncy") nextIndex = 1;
+          if (ballType == "grenade") nextIndex = 2;
+          if (ballType == "gravity") nextIndex = 3;
+          if (ballType == "sticky") nextIndex = 4;
+          if (ballType == "freeze") nextIndex = 5;
+          
           Debug.Log(nextIndex);
           SetActiveObject(nextIndex);
           balls[ballIndex].transform.position = pos;
@@ -159,5 +179,11 @@ public class GameHandler : MonoBehaviour {
           Text TypeTextB = typeText.GetComponent<Text>();
           TypeTextB.text = "Ball Type: " + type;
           Debug.Log(TypeTextB.text);
+      }
+      
+      public void MenuSelect(){
+          Debug.Log("Switch");
+          Debug.Log(dropMenu.options[dropMenu.value].text);
+          if (balls[ballIndex].GetComponent<BallControl>().isStationary()) Switch(dropMenu.options[dropMenu.value].text);
       }
 }
