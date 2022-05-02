@@ -51,7 +51,9 @@ public class BallControl : MonoBehaviour
          
          ballType = this.tag;
          
-         
+         //just makes it easier to edit the min max power in here
+         minPower = new Vector2(-3,-3);
+         maxPower = new Vector2(3,3);
         
     }
 
@@ -82,6 +84,10 @@ public class BallControl : MonoBehaviour
             rb.velocity = new Vector2(0,0);
             rb.angularVelocity = 0;
             gameHandlerObj.AddStroke(1);
+            if (ballType == "gravity" && powerUsed) {
+                currGrav *= -1;
+                rb.gravityScale = currGrav;
+            }
         }
     }
 
