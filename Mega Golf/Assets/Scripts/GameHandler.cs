@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class GameHandler : MonoBehaviour {
       
-      public GameObject strokeText, speedText, finalScoreText;
+      public GameObject strokeText, speedText;
       private int stroke_count = 0;
       private int[] scores = new int[9];
       private int currHole = 0;
@@ -32,7 +32,7 @@ public class GameHandler : MonoBehaviour {
             currHole = GlobalControl.Instance.currHole;
             UpdateStrokes();
             
-            if (SceneManager.GetActiveScene().name == "GameOver") PrintScorecard();
+            // if (SceneManager.GetActiveScene().name == "GameOver") PrintScorecard();
             
             balls = new GameObject[] {GameObject.Find("Ball_Standard"), 
                       GameObject.Find("Ball_Bouncy Variant"), GameObject.Find("Ball_Grenade"), GameObject.Find("Ball_Gravity"), 
@@ -104,22 +104,22 @@ public class GameHandler : MonoBehaviour {
 
       }
       
-      void PrintScorecard(){
-          Debug.Log("In Print scorecard");
-
-          int sum = scores[0]+scores[1]+scores[2]+ scores[3];
-          Text finalScoreTextB = finalScoreText.GetComponent<Text>();
-          finalScoreTextB.text = "Hole:  1   2   3   4   Tot.  \n      " 
-                                +scores[0]+ "   "+ scores[1] + "   "+ scores[2]
-                                + "   "+ scores[3]+"   "+ sum;
-                                
-        currHole = 0;
-        for(int i =0; i< 9; i++){
-            scores[i] = 0;
-        }
-        SaveData();
-          
-      }
+      // void PrintScorecard(){
+      //     Debug.Log("In Print scorecard");
+      // 
+      //     int sum = scores[0]+scores[1]+scores[2]+ scores[3];
+      //     Text finalScoreTextB = finalScoreText.GetComponent<Text>();
+      //     finalScoreTextB.text = "Hole:  1   2   3   4   Tot.  \n      " 
+      //                           +scores[0]+ "   "+ scores[1] + "   "+ scores[2]
+      //                           + "   "+ scores[3]+"   "+ sum;
+      // 
+      //   currHole = 0;
+      //   for(int i =0; i< 9; i++){
+      //       scores[i] = 0;
+      //   }
+      //   SaveData();
+      // 
+      // }
       
       public void SaveData(){
           for(int i =0; i< 9; i++){
