@@ -63,7 +63,7 @@ public class BallControl : MonoBehaviour
         }
         else{
             collided =true;
-            if(sticky){
+            if(ballType == "sticky" && !other.gameObject.CompareTag("portal")){
                 rb.isKinematic = false;
                 rb.velocity = new Vector2(0,0);
                 rb.angularVelocity = 0;
@@ -146,7 +146,7 @@ public class BallControl : MonoBehaviour
                     }
 
                     rb.AddForce (force, ForceMode2D.Impulse);
-                    rb.angularVelocity = -1000 * (direction.x / Math.Abs(direction.x) ) * gameHandlerObj.getSpin();
+                     rb.angularVelocity = -1000 * Math.Sign(direction.x) * currGrav * gameHandlerObj.getSpin();
                     Debug.Log(gameHandlerObj.getSpin());
                     tl.EndLine();
                     gameHandlerObj.AddStroke(1);
@@ -178,9 +178,9 @@ public class BallControl : MonoBehaviour
             stationary = false;
         }
         //reduce x velocity faster
-        if (rb.velocity.y == 0 && Math.Abs(rb.velocity.x) < 1){
-            rb.velocity = new Vector2(rb.velocity.x * 0.97f,0);
-            if (Math.Abs(rb.velocity.x) < .07){
+        if (Math.Abs(rb.velocity.y) < 1 && Math.Abs(rb.velocity.x) < 1){
+            rb.velocity = new Vector2(rb.velocity.x * 0.97f, rb.velocity.y * 0.97f);
+            if (Math.Abs(rb.velocity.x) < .08 && Math.Abs(rb.velocity.y) < .03){
                 rb.velocity = new Vector2(0,0);
                 rb.angularVelocity = 0;
                 stationary = true;
