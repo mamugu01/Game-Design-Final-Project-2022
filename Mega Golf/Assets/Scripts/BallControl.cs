@@ -22,9 +22,8 @@ public class BallControl : MonoBehaviour
     
     // public Slider spinSlider;
 
-    public Vector2 minPower;
-    public Vector2 maxPower;
     public Vector2 windPosition;
+    public float maxSpeed;
 
     Vector2 force;
     Vector3 startPos, endPos, direction; 
@@ -52,8 +51,6 @@ public class BallControl : MonoBehaviour
          ballType = this.tag;
          
          //just makes it easier to edit the min max power in here
-         minPower = new Vector2(-3,-3);
-         maxPower = new Vector2(3,3);
         
     }
 
@@ -143,8 +140,12 @@ public class BallControl : MonoBehaviour
                     direction = (startPos - endPos);
                     sticky = false;
                     rb.isKinematic = false;
-                    force = new Vector2(Mathf.Clamp(direction.x, minPower.x, maxPower.x), Mathf.Clamp(direction.y, minPower.y, maxPower.y));
-                    rb.AddForce (force * shootPower, ForceMode2D.Impulse);
+                    force = direction * shootPower;
+                    if(force.magnitude > maxSpeed){
+                         force = (Vector2)Vector3.ClampMagnitude((Vector3)force, maxSpeed);
+                    }
+
+                    rb.AddForce (force, ForceMode2D.Impulse);
                     rb.angularVelocity = -1000 * (direction.x / Math.Abs(direction.x) ) * gameHandlerObj.getSpin();
                     Debug.Log(gameHandlerObj.getSpin());
                     tl.EndLine();

@@ -88,9 +88,8 @@ MonoBehaviour:
   rb: {fileID: 0}
   gameHandlerObj: {fileID: 0}
   shootPower: 10
-  minPower: {x: -2, y: -2}
-  maxPower: {x: 2, y: 2}
   windPosition: {x: 0, y: 0}
+  maxSpeed: 40
   tl: {fileID: 0}
 --- !u!120 &9039448903553314095
 LineRenderer:
