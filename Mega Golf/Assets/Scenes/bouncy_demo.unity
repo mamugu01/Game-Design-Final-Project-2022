@@ -2337,7 +2337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press [space] while flying to activate the sticky ball's sticky powers!
+  m_Text: The sticky ball will stick to the first surface it touches! (except portals)
 --- !u!222 &2019137968
 CanvasRenderer:
   m_ObjectHideFlags: 0
