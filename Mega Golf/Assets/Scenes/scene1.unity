@@ -1906,7 +1906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalScale.x
-      value: 5.0444236
+      value: 6.614753
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalScale.y
@@ -1914,7 +1914,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 36.446
+      value: 35.6607
       objectReference: {fileID: 0}
     - target: {fileID: 4687496316938032744, guid: 043d4c5dc81764a8396d59894393a6c8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2790,10 +2790,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Click, Drag, and release to hit the ball!
 
-    Press ''b'' to change your
-    ball type.
+    Select your ball type below
 
-    Press ''r'' to rest ball (+1 stroke)'
+    Press
+    ''r'' to rest ball (+1 stroke)'
 --- !u!222 &1919896024
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3340,11 +3340,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7444428710879498869, guid: eb00e9d1addba434e930a990978d42bb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 14.229563
+      value: 12.753958
       objectReference: {fileID: 0}
     - target: {fileID: 7444428710879498869, guid: eb00e9d1addba434e930a990978d42bb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.8083
+      value: 26.0706
       objectReference: {fileID: 0}
     - target: {fileID: 7444428710879498869, guid: eb00e9d1addba434e930a990978d42bb, type: 3}
       propertyPath: m_LocalPosition.y
