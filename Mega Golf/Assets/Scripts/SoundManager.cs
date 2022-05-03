@@ -24,7 +24,7 @@ public class SoundManager : MonoBehaviour
 
     public void ChangeVolume()
     {
-        AudioListner.volume = volumeSlider.value;
+        AudioListener.volume = volumeSlider.value;
         Save();
     }
 
