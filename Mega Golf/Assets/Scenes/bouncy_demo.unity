@@ -2265,50 +2265,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8801354556491288379, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.78
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556491288379, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -4.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556491288379, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556491288379, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556491288379, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556491288379, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556781002237, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -6.16
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556781002237, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -2.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556781002237, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556781002237, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 8801354556781002237, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fc7d23959cfe444594ad221e6ebd481, type: 3}
 --- !u!1 &2019137965
@@ -2381,7 +2337,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press [space] while flying to activate the sticky ball's sticky powers!
+  m_Text: The sticky ball will stick to the first surface it touches! (except portals)
 --- !u!222 &2019137968
 CanvasRenderer:
   m_ObjectHideFlags: 0

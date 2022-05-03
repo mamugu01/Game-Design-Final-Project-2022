@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
  
 public class Enemy : MonoBehaviour
 {
@@ -24,12 +25,12 @@ public class Enemy : MonoBehaviour
     {
         Vector3 currentPos = transform.position;
  
-        if (currentPos == endPos)
+        if (Math.Abs(currentPos.x - endPos.x) < 0.3 && Math.Abs(currentPos.y - endPos.y) < 0.3)
         {
             targetPos = startPos;
             Debug.Log("Reached end, switching target position");
         }
-        else if (currentPos == startPos)
+        else if (Math.Abs(currentPos.x - startPos.x) < 0.3 && Math.Abs(currentPos.y - startPos.y) < 0.3)
         {
             targetPos = endPos;
             Debug.Log("Reached beginning, switching target position");

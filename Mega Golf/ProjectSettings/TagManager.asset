@@ -16,6 +16,8 @@ TagManager:
   - sticky
   - Wind
   - freeze
+  - bouncy
+  - portal
   layers:
   - Default
   - TransparentFX
