@@ -149,7 +149,7 @@ public class BallControl : MonoBehaviour
                      rb.angularVelocity = -1000 * Math.Sign(direction.x) * currGrav * gameHandlerObj.getSpin();
                     Debug.Log(gameHandlerObj.getSpin());
                     tl.EndLine();
-                    gameHandlerObj.AddStroke(1);
+                    if (force != new Vector2(0,0)) gameHandlerObj.AddStroke(1);
                     gameHandlerObj.resetSpin();
                 }
                 else disable = false;
@@ -199,6 +199,10 @@ public class BallControl : MonoBehaviour
             rb.velocity = new Vector2(0,0);
             rb.angularVelocity = 0;
             gameHandlerObj.AddStroke(1);
+            if (ballType == "gravity" && powerUsed) {
+                currGrav *= -1;
+                rb.gravityScale = currGrav;
+            }
         }
     }
      
