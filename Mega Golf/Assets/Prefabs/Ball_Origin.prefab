@@ -91,6 +91,7 @@ MonoBehaviour:
   windPosition: {x: 0, y: 0}
   maxSpeed: 40
   tl: {fileID: 0}
+  explosion: {fileID: 2660368276733260510, guid: 456ff5bd12fa0714eb60941edcf3c5e9, type: 3}
 --- !u!120 &9039448903553314095
 LineRenderer:
   m_ObjectHideFlags: 0

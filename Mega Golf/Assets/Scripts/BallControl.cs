@@ -34,6 +34,9 @@ public class BallControl : MonoBehaviour
 
     Camera cam;
     private bool powerUsed = false;
+
+    [SerializeField]
+    private GameObject explosion;
     
 
     // Start is called before the first frame update
@@ -225,12 +228,15 @@ public class BallControl : MonoBehaviour
      private void Explode(){
          Debug.Log("BOOM!");
          // GameObject[] results = new GameObject[] {};
+        
+         Instantiate(explosion, transform.position, transform.rotation);
          Collider2D[] proximityCheck = Physics2D.OverlapCircleAll(rb.position, 1f);
          foreach(Collider2D box in proximityCheck){
              if (box.tag == "explodable"){
                  Destroy(box.gameObject);
              }
          }
+         
          
      }
      
