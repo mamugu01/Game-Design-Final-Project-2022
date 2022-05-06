@@ -18,6 +18,7 @@ TagManager:
   - freeze
   - bouncy
   - portal
+  - tumbleweed
   layers:
   - Default
   - TransparentFX

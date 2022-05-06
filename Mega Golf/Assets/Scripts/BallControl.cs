@@ -232,7 +232,7 @@ public class BallControl : MonoBehaviour
          Instantiate(explosion, transform.position, transform.rotation);
          Collider2D[] proximityCheck = Physics2D.OverlapCircleAll(rb.position, 1f);
          foreach(Collider2D box in proximityCheck){
-             if (box.tag == "explodable"){
+             if (box.tag == "explodable" || box.tag == "tumbleweed"){
                  Destroy(box.gameObject);
              }
          }
