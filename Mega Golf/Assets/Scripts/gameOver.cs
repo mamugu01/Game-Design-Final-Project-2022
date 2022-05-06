@@ -28,11 +28,13 @@ public class gameOver : MonoBehaviour
     void PrintScorecard(){
         Debug.Log("In Print scorecard");
 
-        int sum = scores[0]+scores[1]+scores[2]+ scores[3];
+        int sum = 0;
+        for (int i = 0; i <9; i++) sum+= scores[i];
         Text finalScoreTextB = finalScoreText.GetComponent<Text>();
-        finalScoreTextB.text = "Hole:  1   2   3   4   Tot.  \n      " 
+        finalScoreTextB.text = "Hole:  1   2   3   4   5   6   7   8   9   Tot.  \n      " 
                               +scores[0]+ "   "+ scores[1] + "   "+ scores[2]
-                              + "   "+ scores[3]+"   "+ sum;
+                              + "   "+ scores[3]+"   "+ scores[4]+"   "+scores[5]+"   "+
+                              scores[6]+"   "+scores[7]+"   "+scores[8]+"   "+sum;
                               
       
       for(int i =0; i< 9; i++){

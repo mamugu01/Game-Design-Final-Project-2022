@@ -225,7 +225,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f12caa9716bd3724fa54a923bdf88fd8, type: 2}
+  - {fileID: 2100000, guid: 0011762c25a0d45ea8862bf7c84c2411, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -245,7 +245,7 @@ TrailRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: -1
   m_Time: 0.25
   m_Parameters:
     serializedVersion: 3
