@@ -10,7 +10,7 @@ public class GameHandler : MonoBehaviour {
       
       public GameObject strokeText, speedText;
       private int stroke_count = 0;
-      private int[] scores = new int[9];
+      private int[] scores = new int[10];
       private int currHole = 0;
       private float spin = 0;
       public Slider spinSlider;
@@ -24,7 +24,7 @@ public class GameHandler : MonoBehaviour {
       
       void Start(){
             stroke_count = 0;
-            for(int i =0; i< 9; i++){
+            for(int i =0; i< 10; i++){
                 scores[i] = GlobalControl.Instance.scorecard[i];
                 // Debug.Log(scores[i]);
             }
@@ -122,7 +122,7 @@ public class GameHandler : MonoBehaviour {
       // }
       
       public void SaveData(){
-          for(int i =0; i< 9; i++){
+          for(int i =0; i< 10; i++){
               GlobalControl.Instance.scorecard[i] = scores[i];
           }
           GlobalControl.Instance.currHole = currHole;
