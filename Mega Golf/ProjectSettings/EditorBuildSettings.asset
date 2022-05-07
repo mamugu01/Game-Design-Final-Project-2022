@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: Assets/Scenes/hole1_classic.unity
     guid: af7cc938d479847bebbbf784927c91bc
   - enabled: 1
-    path: Assets/Scenes/grenade_demo.unity
+    path: Assets/Scenes/hole2_desert.unity
     guid: 6ddc2bc2e0c3d4eaca00d27c2f4b4973
   - enabled: 1
-    path: Assets/Scenes/bouncy_demo.unity
+    path: Assets/Scenes/hole3_city.unity
     guid: c93f550536d2b4542b33f914a59a8411
   - enabled: 1
     path: Assets/Scenes/hole4_space.unity

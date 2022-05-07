@@ -19,6 +19,7 @@ TagManager:
   - bouncy
   - portal
   - tumbleweed
+  - taxi
   layers:
   - Default
   - TransparentFX

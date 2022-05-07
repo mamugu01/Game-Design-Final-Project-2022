@@ -32,12 +32,14 @@ public class Enemy : MonoBehaviour
             targetPos = startPos;
             Debug.Log("Reached end, switching target position");
             if (this.tag == "tumbleweed") sign = -1;
+            if (this.tag == "taxi") transform.localScale = new Vector3 (-1,1,1);;
         }
         else if (Math.Abs(currentPos.x - startPos.x) < 0.3 && Math.Abs(currentPos.y - startPos.y) < 0.3)
         {
             targetPos = endPos;
             Debug.Log("Reached beginning, switching target position");
             if (this.tag == "tumbleweed") sign = 1;
+            if (this.tag == "taxi") transform.localScale = new Vector3 (1,1,1);
         }
  
         Vector3 targetDirection = (targetPos - currentPos).normalized;
