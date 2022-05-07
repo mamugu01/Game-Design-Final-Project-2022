@@ -156,8 +156,11 @@ public class BallControl : MonoBehaviour
                      rb.angularVelocity = -1000 * Math.Sign(direction.x) * currGrav * gameHandlerObj.getSpin();
                     Debug.Log(gameHandlerObj.getSpin());
                     tl.EndLine();
-                    if (force != new Vector2(0,0)) gameHandlerObj.AddStroke(1);
-                    gameHandlerObj.resetSpin();
+                    if (force != new Vector2(0,0)) {
+                        gameHandlerObj.AddStroke(1);
+                        gameHandlerObj.resetSpin();
+                        PlayAudio();
+                    }
                 }
                 else disable = false;
             
@@ -261,5 +264,16 @@ public class BallControl : MonoBehaviour
 
     }
     
+    private void PlayAudio(){
+        GetComponent<AudioSource>().Play();
+               // GameObject boomFX = Instantiate(hitVFX, transform.position, Quaternion.identity);
+               // StartCoroutine(DestroyVFX(boomFX));
+    }
+    // IEnumerator DestroyVFX(GameObject theEffect){
+    //      yield return new WaitForSeconds(0.5f);
+    //      Destroy(theEffect);
+    //      gameObject.GetComponent<AudioSource>().Stop();
+    // }
+    // 
      
 }

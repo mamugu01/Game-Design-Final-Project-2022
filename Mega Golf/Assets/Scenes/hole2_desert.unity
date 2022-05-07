@@ -254,6 +254,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8595bca9156e9407cb3a7aec83b0df5b, type: 3}
+--- !u!1 &131501962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5946398500374672857, guid: 8595bca9156e9407cb3a7aec83b0df5b, type: 3}
+  m_PrefabInstance: {fileID: 131501961}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &140950028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2588,7 +2593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0663b5c00dc034741b20257e24ca916f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 131501962}
   parallaxEffect: 0.7
   parallaxUpEffect: 0.7
 --- !u!1001 &919093768

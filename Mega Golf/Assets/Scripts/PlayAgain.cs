@@ -9,6 +9,6 @@ public class PlayAgain : MonoBehaviour
     {
         GlobalControl.Instance.scorecard = new int[]{0,0,0,0,0,0,0,0,0};
         GlobalControl.Instance.currHole =0;
-        SceneManager.LoadScene("scene1");
+        SceneManager.LoadScene("MainMenu");
     }
 }
