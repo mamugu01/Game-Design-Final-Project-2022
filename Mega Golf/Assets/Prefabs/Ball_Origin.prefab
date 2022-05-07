@@ -92,6 +92,7 @@ MonoBehaviour:
   maxSpeed: 40
   tl: {fileID: 0}
   explosion: {fileID: 2660368276733260510, guid: 456ff5bd12fa0714eb60941edcf3c5e9, type: 3}
+  collision_part: {fileID: 1718137207784233821, guid: e715b14de92d24849bdb04f7a76bc7a9, type: 3}
 --- !u!120 &9039448903553314095
 LineRenderer:
   m_ObjectHideFlags: 0

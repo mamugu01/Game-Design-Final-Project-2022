@@ -37,6 +37,9 @@ public class BallControl : MonoBehaviour
 
     [SerializeField]
     private GameObject explosion;
+
+    [SerializeField]
+    private GameObject collision_part;
     
 
     // Start is called before the first frame update
@@ -58,6 +61,7 @@ public class BallControl : MonoBehaviour
     }
 
     public void OnCollisionEnter2D(Collision2D other){
+        Instantiate(collision_part, transform.position, transform.rotation);
         if(other.gameObject.CompareTag("Goal")){
             Debug.Log("done");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
