@@ -19,6 +19,8 @@ public class BallControl : MonoBehaviour
     public GameHandler gameHandlerObj;
     public  float shootPower = 5f;
     private float currGrav = 1;
+    public GameObject CompleteLevelUI;
+    
     
     // public Slider spinSlider;
 
@@ -68,7 +70,7 @@ public class BallControl : MonoBehaviour
         Instantiate(collision_part, transform.position, transform.rotation);
         if(other.gameObject.CompareTag("Goal")){
             Debug.Log("done");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            CompleteLevelUI.SetActive(true);
             gameHandlerObj.UpdateScorecard();
 
         }
@@ -84,6 +86,7 @@ public class BallControl : MonoBehaviour
             }
         }
     }
+
     
     public void OnTriggerEnter2D(Collider2D other){
         if(other.tag == "water" | other.tag == "enemy"){

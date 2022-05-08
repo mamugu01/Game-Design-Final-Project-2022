@@ -2055,7 +2055,7 @@ GameObject:
   m_Component:
   - component: {fileID: 745840056}
   m_Layer: 0
-  m_Name: Cloud (1)
+  m_Name: Clouds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4181,7 +4181,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1688971805}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: Golf Balls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
