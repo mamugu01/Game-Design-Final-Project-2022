@@ -102,6 +102,12 @@ public class BallControl : MonoBehaviour
                 currGrav *= -1;
                 rb.gravityScale = currGrav;
             }
+            if (ballType == "sticky"){
+                rb.isKinematic = false;
+                rb.velocity = new Vector2(0,0);
+                rb.angularVelocity = 0;
+                rb.gravityScale = 0;
+            }
         }
     }
 
