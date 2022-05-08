@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/hole6_cloud.unity
     guid: 131bbb4503c3746be98630f631ba3fa2
   - enabled: 1
+    path: Assets/Scenes/hole7_Beach.unity
+    guid: 4cd5937889b9c4348bd44ec565815bf6
+  - enabled: 1
     path: Assets/Scenes/hole9_Jungle.unity
     guid: 48a3cbc1441ff564bbccd3c0207ad7fa
   - enabled: 1
