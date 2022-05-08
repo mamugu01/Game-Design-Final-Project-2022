@@ -9,7 +9,7 @@ public class EndOfLevelMenu : MonoBehaviour
 public void LoadNextLevel()
 {
     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
+    GameObject.FindWithTag("GameHandler").GetComponent<GameHandler>().UpdateScorecard();
 }
 
 public void RestartLevel()

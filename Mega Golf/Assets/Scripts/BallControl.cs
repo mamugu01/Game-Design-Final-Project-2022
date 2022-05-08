@@ -71,7 +71,7 @@ public class BallControl : MonoBehaviour
         if(other.gameObject.CompareTag("Goal")){
             Debug.Log("done");
             CompleteLevelUI.SetActive(true);
-            gameHandlerObj.UpdateScorecard();
+            // gameHandlerObj.UpdateScorecard();
 
         }
         else{
