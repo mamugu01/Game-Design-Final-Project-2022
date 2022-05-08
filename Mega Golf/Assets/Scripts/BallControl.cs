@@ -244,6 +244,7 @@ public class BallControl : MonoBehaviour
          // GameObject[] results = new GameObject[] {};
         
          Instantiate(explosion, transform.position, transform.rotation);
+         GetComponents<AudioSource>()[1].Play();
          Collider2D[] proximityCheck = Physics2D.OverlapCircleAll(rb.position, 1f);
          foreach(Collider2D box in proximityCheck){
              if (box.tag == "explodable" || box.tag == "tumbleweed"){
@@ -272,7 +273,7 @@ public class BallControl : MonoBehaviour
     }
     
     private void PlayAudio(){
-        GetComponent<AudioSource>().Play();
+        GetComponents<AudioSource>()[0].Play();
                // GameObject boomFX = Instantiate(hitVFX, transform.position, Quaternion.identity);
                // StartCoroutine(DestroyVFX(boomFX));
     }
