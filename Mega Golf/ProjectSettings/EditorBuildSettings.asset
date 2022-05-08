@@ -36,6 +36,9 @@ EditorBuildSettings:
     path: Assets/Scenes/hole9_Jungle.unity
     guid: 48a3cbc1441ff564bbccd3c0207ad7fa
   - enabled: 1
+    path: Assets/Scenes/Bonus Level_Hell.unity
+    guid: 9585d586b2b104667a06a65fd220d494
+  - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 143b99e75364e465e9be8de030093545
   m_configObjects: {}
