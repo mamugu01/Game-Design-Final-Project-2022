@@ -40,6 +40,10 @@ public class BallControl : MonoBehaviour
 
     [SerializeField]
     private GameObject collision_part;
+
+    [SerializeField]
+    private GameObject splash;
+
     
 
     // Start is called before the first frame update
@@ -82,8 +86,11 @@ public class BallControl : MonoBehaviour
     }
     
     public void OnTriggerEnter2D(Collider2D other){
-        if(other.tag == "water"){
+        if(other.tag == "water" | other.tag == "enemy"){
             //reset ball and add a stroke penalty
+            if(other.tag == "water"){
+                Instantiate(splash, transform.position, transform.rotation);
+            }
             rb.position = ballPos;
             rb.velocity = new Vector2(0,0);
             rb.angularVelocity = 0;
