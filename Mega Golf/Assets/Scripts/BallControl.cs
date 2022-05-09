@@ -256,7 +256,7 @@ public class BallControl : MonoBehaviour
          GetComponents<AudioSource>()[1].Play();
          Collider2D[] proximityCheck = Physics2D.OverlapCircleAll(rb.position, 1f);
          foreach(Collider2D box in proximityCheck){
-             if (box.tag == "explodable" || box.tag == "tumbleweed"){
+             if ((box.tag == "explodable" || box.tag == "tumbleweed")|| box.tag == "enemy"){
                  Destroy(box.gameObject);
              }
          }
