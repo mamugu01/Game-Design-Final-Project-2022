@@ -48,10 +48,12 @@ public class PPPause : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
+        
     }
 
     public void QuitGame()
     {
         SceneManager.LoadScene("GameOver");
+        Time.timeScale = 1f;
     }
 }

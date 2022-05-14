@@ -13,6 +13,7 @@ public class BallControl : MonoBehaviour
     public Rigidbody2D rb;
     private bool collided;
     private bool stationary = false;
+    
 
     private bool sticky = false;
     private bool disable = false;
@@ -81,16 +82,16 @@ public class BallControl : MonoBehaviour
                 rb.velocity = new Vector2(0,0);
                 rb.angularVelocity = 0;
                 rb.gravityScale = 0;
-                
-
+            
             }
         }
     }
 
     
     public void OnTriggerEnter2D(Collider2D other){
-        if(other.tag == "water" | other.tag == "enemy"){
+        if((other.tag == "water" | other.tag == "enemy") || other.tag == "taxi"){
             //reset ball and add a stroke penalty
+            
             if(other.tag == "water"){
                 Instantiate(splash, transform.position, transform.rotation);
             }
@@ -101,6 +102,7 @@ public class BallControl : MonoBehaviour
             if (ballType == "gravity" && powerUsed) {
                 currGrav *= -1;
                 rb.gravityScale = currGrav;
+                powerUsed = false;
             }
             if (ballType == "sticky"){
                 rb.isKinematic = false;
@@ -138,7 +140,7 @@ public class BallControl : MonoBehaviour
         if(Input.GetKeyDown("space")){
             Trigger();
         }
-        if (stationary && collided) powerUsed = false;
+        // if (stationary && collided) powerUsed = false;
         //removed && collided here, not sure if collided was necessary
         if(stationary){
             if (Input.GetMouseButtonDown (0) && !disable) {
@@ -175,6 +177,7 @@ public class BallControl : MonoBehaviour
                     if (force != new Vector2(0,0)) {
                         gameHandlerObj.AddStroke(1);
                         gameHandlerObj.resetSpin();
+                        powerUsed = false;
                         PlayAudio();
                     }
                 }
@@ -292,5 +295,6 @@ public class BallControl : MonoBehaviour
     //      gameObject.GetComponent<AudioSource>().Stop();
     // }
     // 
+    
      
 }
